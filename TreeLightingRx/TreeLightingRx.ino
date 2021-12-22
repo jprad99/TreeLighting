@@ -4,7 +4,6 @@
 #include <RF24.h>
 RF24 radio(7, 8); // CE, CSN
 const byte address[6] = {'R', 'x', '6', 'F', '3'}; // CHANGE TO REFLECT MODULE ID
-const byte channel = 108; // Above WiFi
 const int relayPin = 3;
 
 // Timing
@@ -19,8 +18,6 @@ void setup() {
   radio.begin();
   radio.openReadingPipe(0, address);
   radio.setPALevel(RF24_PA_MAX); // Max power
-  //radio.setChannel(channel);
-  //radio.setDataRate(RF24_250KBPS); // Lower rate, longer distance
   radio.startListening();
 }
 
